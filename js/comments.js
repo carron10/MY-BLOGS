@@ -1,7 +1,7 @@
 
 $(function () {
     var url = location.pathname;
-    $.get("chatsfly.co.zw/countcomments",{url: url}).done(function(d){
+    $.get("https://chatsfly.co.zw/countcomments",{url: url}).done(function(d){
         $("#view_comments i").text(d);
     });
     function subl(){
@@ -73,7 +73,7 @@ $(function () {
                 }
             });
         }
-        $.getJSON("chatsfly.co.zw/comments", {url: url}).done(function (data) {
+        $.getJSON("https://chatsfly.co.zw/comments", {url: url}).done(function (data) {
             render(data);
             if (connect === '') {
                 $("#comments .comment-section").html('<div class="text-center p-4">No comments so far, Be the first to comment <i class="fa  fa-frown-o"></i></div>');

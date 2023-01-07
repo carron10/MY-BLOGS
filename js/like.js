@@ -1,6 +1,6 @@
 $(function () {
     var u = location.pathname;
-    $.get("chatsfly.co.zw/like", {url: u}).done(function (d) {
+    $.get("https://chatsfly.co.zw/like", {url: u}).done(function (d) {
         $("#likee").html(d);
         $("#likee .btn").click(function () {
             var b = $(this), l = b.attr("id");
