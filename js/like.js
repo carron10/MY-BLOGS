@@ -4,7 +4,7 @@ $(function () {
         $("#likee").html(d);
         $("#likee .btn").click(function () {
             var b = $(this), l = b.attr("id");
-            $.ajax("/like", {method: "POST", data: {url: u, v: l}}).done(function (d) {
+            $.ajax("https://chatsfly.co.zw/like", {method: "POST", data: {url: u, v: l}}).done(function (d) {
                 var s = b.find("span");
                 s.text(d);
             });
