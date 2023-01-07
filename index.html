@@ -13,17 +13,27 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/css/style.css">
-        <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
     <script src="/js/jquery-3.6.0.js"></script>
     <script src="/js/popper.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/css/style.css">
+   
     <link rel="stylesheet" href="/css/mystyle.css">
-        
+    <script src="/js/global.js"></script>
+
     <style>
         a:hover {
             text-decoration: none !important;
             color: black;
+        }
+        #go_up{
+            z-index: 2147483647 !important;
+            position: relative;
+        }
+        @media (max-width: 786px) {
+            .tags{
+                z-index: 0 !important;
+            }
         }
     </style>
 </head>
@@ -36,8 +46,8 @@
             <span class="navbar-toggler-icon b"></span>
             <span class="navbar-toggler-icon c"></span>
         </button> -->
-        <div  class=" d-sm-none">
-<a href="/search.html"><span class=" fa fa-search"></span></a>
+        <div class=" d-sm-none">
+            <a href="/search.html"><span class=" fa fa-search"></span></a>
         </div>
         <div class="collapse navbar-collapse text-center d-none d-sm-inline-block" id="collapse">
             <ul class=" nav navbar-nav ml-auto ml-auto pr-2">
@@ -51,8 +61,8 @@
                         About
                     </a>
                 </li>
-               
-               
+
+
                 <li class=" nav-item">
                     <a class="nav-link" id="contact" href="#!">
                         Contact
@@ -134,8 +144,8 @@
                 <div class=" ">
                     <a href="/understanding-git-and-github.html">
                         <div class=" media p-2 rounded">
-                            <i class="align-self-start mr-3 coloured"> <img class="rounded-0" src="/img/git-and-github.png"
-                                    style="width: 130px; height: 100% !important;"></i>
+                            <i class="align-self-start mr-3 coloured"> <img class="rounded-0"
+                                    src="/img/git-and-github.png" style="width: 130px; height: 100% !important;"></i>
                             <div class="media-body">
 
                                 <h4 class="text-c5">Understanding Git and Github Systems</h4>
@@ -156,14 +166,16 @@
                         </div>
                     </a> <a href="/getting-started-with-programming.html">
                         <div class=" media p-2 rounded">
-                            <i class="align-self-start mr-3 coloured"> <img class="rounded-0" src="/img/markus-spiske-70Rir5vB96U-unsplash.jpg"
+                            <i class="align-self-start mr-3 coloured"> <img class="rounded-0"
+                                    src="/img/markus-spiske-70Rir5vB96U-unsplash.jpg"
                                     style="width: 130px; height: 100% !important;"></i>
                             <div class="media-body">
 
                                 <h4 class="text-c5">How to get started with computer programming.</h4>
 
                                 <p class="m-0">
-                                    Coding is the process of writing out steps for a computer to follow to achieve a goal or perform a task. Typically, coding is done using a programming language ...
+                                    Coding is the process of writing out steps for a computer to follow to achieve a
+                                    goal or perform a task. Typically, coding is done using a programming language ...
                                 </p>
                                 <div class="d-flex">
                                     <small class="pr-2 text-muted"><i class="fa fa-calendar-alt"></i>
@@ -191,15 +203,18 @@
 
                     <a href="/How-to-build-a-web-site.html">
                         <div class=" media p-2 rounded">
-                            <i class="align-self-start mr-3 coloured"> <img class="rounded-0" src="/img/gema-saputera-pJaocJrXGFQ-unsplash.jpg"
+                            <i class="align-self-start mr-3 coloured"> <img class="rounded-0"
+                                    src="/img/gema-saputera-pJaocJrXGFQ-unsplash.jpg"
                                     style="width: 130px; height: 100% !important;"></i>
                             <div class="media-body">
 
                                 <h4 class="text-c5">How to build a website</h4>
 
                                 <p class="m-0">
-                                   A website is an application  that runs through a web browser. This is kind of an application/system that anyone connected 
-to the internet with an cellphone,computer or any device  with a browser can access it.
+                                    A website is an application that runs through a web browser. This is kind of an
+                                    application/system that anyone connected
+                                    to the internet with an cellphone,computer or any device with a browser can access
+                                    it.
 
                                 </p>
                                 <div class="d-flex">
@@ -242,12 +257,13 @@ to the internet with an cellphone,computer or any device  with a browser can acc
             <div class="col-sm-4 ">
 
                 <div class="sidebar-text border d-flex flex-column justify-content-center text-center p-1">
-                    <img class="mx-auto d-block w-75 btn  bg-dark img-fluid rounded-circle mb-4 p-3 mt-1" src="img/carron-muleya.jpg"
-                        alt="Image">
+                    <img class="mx-auto d-block w-75 btn  bg-dark img-fluid rounded-circle mb-4 p-3 mt-1"
+                        src="img/carron-muleya.jpg" alt="Image">
                     <h1 class="font-weight-bold">Carron Muleya</h1>
                     <p class="mb-4">
-                       A young software programmer who is passionate on reading and writting articles on whatever I have 
-                       learnt throughout my skill development.
+                        A young software programmer who is passionate on reading and writting articles on whatever I
+                        have
+                        learnt throughout my skill development.
                     </p>
                     <div class="d-flex justify-content-center mb-2">
 
@@ -288,13 +304,18 @@ to the internet with an cellphone,computer or any device  with a browser can acc
             <span class=" px-1">Contact</span>
         </div>
     </div>
-<script>
-            $("#contact").click(function () {
-        $.get("/contact.html").done(function (data) {
-            $("body").append(data);
+    <div class="mx-3" style=" position: fixed; right: 0; bottom:90px;">
+        <button id="go_up" class=" border-0 p-0">
+            <i class="fa fa-chevron-up p-2 text-white" style=" background-color: #0069d9;"></i>
+        </button>
+    </div>
+    <script>
+        $("#contact").click(function () {
+            $.get("/contact.html").done(function (data) {
+                $("body").append(data);
+            });
         });
-    });
-        </script>
+    </script>
 </body>
 
 </html>

@@ -23,15 +23,6 @@ $(function () {
             $("body").append(data);
         });
     });
-    footer();
-    $(window).resize(footer);
-    function footer() {
-        if (($(".footer").position().top + $(".footer").height()) <= $(window).height()) {
-            $(".footer").addClass("fixed-bottom");
-        } else {
-            $(".footer").removeClass("fixed-bottom");
-        }
-    }
     var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
     var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
         return new bootstrap.Popover(popoverTriggerEl);
