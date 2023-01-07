@@ -12,7 +12,7 @@ $(function () {
                 if (this.checkValidity() === true) {
                     btn.attr("disabled", true);
                     btn.html(" <span class=\"spinner-grow spinner-grow-sm\" id=\"loader\" role=\"status\" aria-hidden=\"true\"></span>Sending....");
-                    $.ajax({url: "/comments", method: "post", data: {
+                    $.ajax({url: "https://chatsfly.co.zw/comments", method: "post", data: {
                             email: email, uname: name, msg: msg, id: id, url: url
                         }}).done(function (e) {
                         a.html(e);
