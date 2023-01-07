@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/fontawesome-free-6.1.1-web/css/fontawesome.min.css">
+    <script src="/js/jquery-3.6.0.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/mystyle.css">
+      <script src="/js/global.js"></script>
+    <style>
+        a:hover {
+            text-decoration: none !important;
+            color: black;
+        }
+
+        .comment-text-area:focus {
+            border: none !important;
+            outline: none !important;
+        }
+        
+        .responses {
+            width: 400px;
+            position: fixed;
+            height: 100%;
+            margin-right: 0px;
+            z-index: 1999;
+            right: 0;
+            top: 0;
+            background-color: azure;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md border-bottom  py-3 small">
+        <a class="navbar-brand font-weight-bold" href="/">CHATSFLY</a>
+
+        <div class=" d-sm-none">
+            <a href="/search.html"><span class=" fa fa-search"></span></a>
+        </div>
+        <div class="collapse navbar-collapse text-center d-none d-sm-inline-block" id="collapse">
+            <ul class=" nav navbar-nav ml-auto ml-auto pr-2">
+                <li class=" nav-item">
+                    <a class="nav-link" href="#">
+                        <span class=" fa fa-search"></span>
+                    </a>
+                </li>
+                <li class=" nav-item">
+                    <a class="nav-link" href="#">
+                        About
+                    </a>
+                </li>
+
+
+                <li class=" nav-item">
+                    <a class="nav-link" href="#!" id="contact">
+                        Contact
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+    <div class=" container">
+        <div class=" row ">
+
+            <div class="col blog-container">
+                <div class="text-left">
+                    <div class="p-0">
+            <!-- Contact Start -->
+            <div class="container bg-white pt-5">
+                <div class="row px-3 pb-2">
+                    <div class="col-sm-4 text-center mb-3">
+                        <i class="fa fa-2x fa-map-marker-alt mb-3 text-primary"></i>
+                        <h4 class="font-weight-bold">Address</h4>
+                        <p>123 Street, New York, USA</p>
+                    </div>
+                    <div class="col-sm-4 text-center mb-3">
+                        <i class="fa fa-2x fa-phone-alt mb-3 text-primary"></i>
+                        <h4 class="font-weight-bold">Phone</h4>
+                        <p>+012 345 6789</p>
+                    </div>
+                    <div class="col-sm-4 text-center mb-3">
+                        <i class="far fa-2x fa-envelope mb-3 text-primary"></i>
+                        <h4 class="font-weight-bold">Email</h4>
+                        <p>info@example.com</p>
+                    </div>
+                </div>
+                <div class="col-md-12 pb-5">
+                    <div class="contact-form">
+                        <div id="success"></div>
+                        <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                            <div class="control-group">
+                                <input type="text" class="form-control" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <input type="email" class="form-control" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <input type="text" class="form-control" id="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <textarea class="form-control" rows="8" id="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div>
+                                <button class="btn btn-primary" type="submit" id="sendMessageButton">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Contact End -->
+            
+             </div>
+                </div>
+            </div>
+            <div class="col-sm-3  p-2">
+
+                <div class="sidebar-text d-flex flex-column justify-content-center text-center">
+                    <img class="mx-auto d-block w-75 btn  bg-dark img-fluid rounded-circle mb-4 p-0 mt-1"
+                        src="img/carron-muleya.jpg" alt="Image">
+                    <h1 class="font-weight-bold">Carron Muleya</h1>
+                    <p class="mb-4">
+                        A young software programmer who is passionate on reading and writting articles on whatever I
+                        have
+                        learnt throughout my skill development.
+                    </p>
+                    <div class="d-flex justify-content-center mb-2">
+
+                        <ul class=" pagination">
+                            <li class=" page-item">
+                                <a target="_blank" class="page-link fab fa fa-linkedin text-dark"
+                                    href="https://linkedin.com/in/carron-muleya-34a530206"></a>
+                            </li>
+                            <li class=" page-item">
+                                <a target="_blank" href="https://github.com/carron10"
+                                    class="text-dark page-link fab fa fa-github"></a>
+                            </li>
+                            <li class=" page-item">
+                                <a href="tel:+263771013028" class="text-dark page-link fa fa-phone"></a>
+                            </li>
+                            <li class=" page-item">
+                                <a target="_blank" href="https://wa.me/message/7HN4XUZZP6IKA1"
+                                    class="text-dark page-link fab fa fa-whatsapp"></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- <a href="" class="btn btn-lg btn-block btn  btn-dark">Hire Me</a> -->
+                </div>
+                <div class=" mt-2 tags sticky-top">
+                    <p>DISCOVER MORE OF WHAT MATTERS TO YOU</p>
+                    <button class="btn border rounded-0 my-1">Programming</button>
+                    <button class="btn border rounded-0 my-1">Programming</button>
+                    <button class="btn border rounded-0 my-1">Programming</button>
+                    <button class="btn border rounded-0 my-1">Programming</button>
+                    <div class=" text-center container-fluid border-top py-4">
+                        <div class=" text-muted">
+                            <span class=" px-1">Privacy</span>
+                            <span class=" px-1">About</span>
+                            <span class=" px-1">Contact</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        var m=null;
+        $('.comment-text-area').on('focus',function(){
+           m= $(this).children('span');
+           m.remove();
+        });
+        
+        $('.comment-text-area').on('keyup',function(){
+            var t=$(this).text();
+            console.log(m.text());
+            if(t==null){
+                $(this).append(m);
+            }
+        })
+    </script>
+    <script src="/js/like.js"></script>
+    <script src="/js/comments.js"></script>
+</body>
+
+</html>

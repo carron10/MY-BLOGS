@@ -1,0 +1,17 @@
+<div>
+    <h6 class="text-center"><b>How is this page?</b></h6>
+    <div class="d-flex justify-content-between">
+        <div>
+            <button class="btn btn-outline-secondary  mr-1    l p-1" id="1">
+                <img src="/img/like.svg">
+                <span class="small">14</span>
+            </button>
+        </div>
+        <div>
+            <button class="btn btn-outline-secondary  l p-1" id="0">
+                <img src="/img/dislike.svg">
+                <span class="small">1</span>
+            </button>
+        </div>
+    </div>
+</div>
