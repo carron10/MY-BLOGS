@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="/js/jquery-3.6.0.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/mystyle.css">
+        <script src="/js/global.js"></script>
+    <style>
+        a:hover {
+            text-decoration: none !important;
+            color: black;
+        }
+
+        .comment-text-area:focus {
+            border: none !important;
+            outline: none !important;
+        }
+        
+        .responses {
+            width: 400px;
+            position: fixed;
+            height: 100%;
+            margin-right: 0px;
+            z-index: 1999;
+            right: 0;
+            top: 0;
+            background-color: azure;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md border-bottom  py-3 small">
+        <a class="navbar-brand font-weight-bold" href="/">CHATSFLY</a>
+
+        <div class=" d-sm-none">
+            <a href="/search.html"><span class=" fa fa-search"></span></a>
+        </div>
+        <div class="collapse navbar-collapse text-center d-none d-sm-inline-block" id="collapse">
+            <ul class=" nav navbar-nav ml-auto ml-auto pr-2">
+                <li class=" nav-item">
+                    <a class="nav-link" href="#">
+                        <span class=" fa fa-search"></span>
+                    </a>
+                </li>
+                <li class=" nav-item">
+                    <a class="nav-link" href="#">
+                        About
+                    </a>
+                </li>
+
+
+                <li class=" nav-item">
+                    <a class="nav-link" href="#!" id="contact">
+                        Contact
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+    <div class=" container my-3">
+        <div class=" row ">
+
+                <div class="col blog-container p-2">
+
+                    <img src="/img/git-and-github.png" style="width:100%; max-height:400px;">
+
+                    <h3>Understanding git and Github</h3>
+                    <p>
+                        Through this post I will help you understand the two platforms git and github,their difference and what are they used for.
+                        In this post am not real focused on showing you git commands and more deep stuff, and therefore if you are interested on understanding git commands 
+                        you should visit this post.
+                    </p>
+                    <h4>Table of content</h4>
+                    <ol>
+                        <li>Understanding version control</li>
+                        <li>Difference between Git and GitHub</li>
+                        <li>How do Git and GitHub work</li>
+                    </ol>
+                    <section>
+                        <h4>Understanding version control</h4>
+                        <p>
+                            Version Control Systems(VCS) are the software tools for tracking/managing all the changes made to the source code during the project development. 
+                            It stores your project(s) and allows you to view all the changes that you have made. What does this mean?, Think when you are developing 
+                            your projects, their are many changes that you are making, where you are fixing bugs,deleting and updating codes. Sometimes 
+                            you delete some codes and wish if you can get them back and that is where VCS comes in. A Version Control System allows 
+                            you to view those codes that you have deleted by letting you see all changes that you have made from the starting point.
+                        </p>
+                        <h5>Types of Version Control System</h5>
+                        <ol>
+                            <li>Local Version Control System</li>
+                            <li>Centralized Version Control System</li>
+                            <li>Distributed Version Control System</li>
+                        </ol>
+                        <h5>Local Version Control System</h5>
+                        <p>Local Version Control is the one which is located on your computer. To use a Local Version Control you need to download and install it on your pc.
+                            The advantage of Local version control is that you don't always need internet in order for you to view the changes that you have made.
+                            The great disadvantage is that if your machine crashes all your project on Local Version Control will be erased
+                        </p>
+
+                        <img src="/img/local-version-control-system.png" style="width:100%; max-height: 400px;">
+                        <h5>Centralized Version Control System</h5>
+                        <p>Centralized Version Control System is when the projects are put in one server that is accessible to your team. Think about it 
+                            when your are developing one project with your friends, the good thing is to put the project in a place where your friends can 
+                            edit it with their own machines.In the Centralized Version Control Systems, there will be a single central server that contains all the files related to the project</p>
+                        <img src="/img/centralised-version-control-system.png" style="width:100%; max-height: 400px;">
+                        <p>You can see that the only drawback of using centralized Version Cotrol is that, if it crashes everything will lost. Sorry if 
+                            you have been wondering where the word <b> Repository</b> comes in,well this is just a place to store your project e.i I mean your project(s) in Version Control System</p>
+                        <h5>Distributed Version Control System</h5>
+                        <p>To overcome the problems of the above two, we have Distributed Version Control System which combines 
+                            those above and make sure that there is also a VCS on your pc and the other(S) accessible to everyone. 
+                            In a distributed version control system,  there will be one or more servers and many collaborators similar to the centralized system.
+                            In this case if you have a project that you are doing with others, all the collaborators of that project will have their repository with 
+                            the exact copy of project that you have.
+                        </p>
+
+                        <img src="/img/distributed-version-control-system.png" style="width:100%; max-height: 400px;">
+
+                    </section>
+                    <section>
+                        <h4>Difference between Git and GitHub</h4>
+                        <p>
+                            We have introduced each other to Version Conrol Systems, they is no doubt that these two are examples of 
+                            Version Control Systems. Yes, Git and Github they are Version Control Systems but they work differently and they are originated from 
+                            different Companies.
+
+                        </p>
+                        <p>
+                            Git is a Local Version Control System which tracks changes of the source codes on your PC. To use Git you need to<a href="https://git-scm.com/downloads"> download and install it</a>
+                            to your machine. 
+                            It can be installed on the most common operating systems like Windows, Mac, and Linux.
+                            On the other hand Github is a Centralized Version Control System. It is used to host your source codes through web cloud services. The 
+                            best thing about github is that even when your PC is at home you can go to your project repository and view/edit the codes.
+                            For you to use Github you need to create an account at <a class="btn-link" href="https://github.com/">https://github.com/</a>. 
+                            Github works with Git whereby you <b>push/update</b> your source codes from your local repository to your github repository(remote repository).
+                            However using Git doesn't depend on github.
+                        </p>
+                        <img src="/img/git-and-github-diff.png" style="width:100%; max-height: 400px;">
+                    </section>
+                    <section>
+                        <div id="likee" class="d-flex justify-content-center">
+                        </div>
+
+                        <div class=" mt-1">
+                            <div class=" d-flex justify-content-center">
+                                <div>
+                                    <a id="view_comments" href="#cc1" class="btn btn-sm border-dark p-2 px-4  mr-1"><span>View Comments</span> <i class=" badge badge-success">0</i></a>
+                                </div>
+                                <div>
+                                    <a id="leave_comment" href="#comment" class="btn-sm btn border-dark p-2 px-4 ml-1">Leave your comment</a>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center bg-light mt-1" id="c_card" style=" display: none !important">
+                                <div id="comments" class="w-100 mt-2 p-0">
+                                    <div class="comment-section p-0 mt-1" id="cc1">
+                                    </div>
+                                </div>
+                                <div class=" m-1 p-1 w-100" id="comment">
+                                    <div class=" text-center">
+                                        <h4>Leave a comment</h4>
+                                    </div> 
+                                    <hr class="raised line"> 
+                                    <div class="p-2 bg-light"> 
+                                        <form name="comment"> 
+                                            <div class=" callback alert alert-info" style="display:none"></div> 
+                                            <input style="display:none" name="id" value="0"> <label>Comments</label> <textarea class="form-control form-control-sm" name="msg" rows="5" placeholder="Type your Comment here" required></textarea> <i class="small invalid-feedback">Enter your message!</i> <label>Your Name</label> 
+                                            <input type="text" class=" form-control form-control-sm" name="uname" placeholder="Enter your name" required> <i class="small invalid-feedback">Enter valid username!</i> <label>Email</label> 
+                                            <input type="email" class=" form-control form-control-sm" name="email" placeholder="Enter your email" required> <i class="small invalid-feedback">Enter valid email!</i> 
+                                            <br> <button name="send" class="btn btn-primary" type="submit"> Send </button> 
+                                        </form> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div> 
+           
+            <div class="col-sm-3  p-2">
+
+                <div class="sidebar-text d-flex flex-column justify-content-center text-center">
+                    <img class="mx-auto d-block w-75 btn  bg-dark img-fluid rounded-circle mb-4 p-0 mt-1"
+                        src="img/carron-muleya.jpg" alt="Image">
+                    <h1 class="font-weight-bold">Carron Muleya</h1>
+                    <p class="mb-4">
+                        A young software programmer who is passionate on reading and writting articles on whatever I
+                        have
+                        learnt throughout my skill development.
+                    </p>
+                    <div class="d-flex justify-content-center mb-2">
+
+                        <ul class=" pagination">
+                            <li class=" page-item">
+                                <a target="_blank" class="page-link fab fa fa-linkedin text-dark"
+                                    href="https://linkedin.com/in/carron-muleya-34a530206"></a>
+                            </li>
+                            <li class=" page-item">
+                                <a target="_blank" href="https://github.com/carron10"
+                                    class="text-dark page-link fab fa fa-github"></a>
+                            </li>
+                            <li class=" page-item">
+                                <a href="tel:+263771013028" class="text-dark page-link fa fa-phone"></a>
+                            </li>
+                            <li class=" page-item">
+                                <a target="_blank" href="https://wa.me/message/7HN4XUZZP6IKA1"
+                                    class="text-dark page-link fab fa fa-whatsapp"></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- <a href="" class="btn btn-lg btn-block btn  btn-dark">Hire Me</a> -->
+                </div>
+                <div class=" mt-2 tags sticky-top">
+                    <p>DISCOVER MORE OF WHAT MATTERS TO YOU</p>
+                    <button class="btn border rounded-0 my-1">Programming</button>
+                    <button class="btn border rounded-0 my-1">Programming</button>
+                    <button class="btn border rounded-0 my-1">Programming</button>
+                    <button class="btn border rounded-0 my-1">Programming</button>
+                    <div class=" text-center container-fluid border-top py-4">
+                        <div class=" text-muted">
+                            <span class=" px-1">Privacy</span>
+                            <span class=" px-1">About</span>
+                            <span class=" px-1">Contact</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+   <!--
+    <div class="response-wrapper">
+        <div class=" responses">
+        div
+            <div class=" shadow-sm p-2 m-2 bg-white rounded">
+                <i class=" fas fa-user-circle"></i>
+                <div contenteditable="true" class=" h-25 comment-text-area ">
+                    <span class="text-muted">What are your thoughts?</span>
+                </div>
+                <div class=" d-flex justify-content-end">
+                    <button class=" btn rounded-pill btn-success">Respond</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    -->
+    <script>
+        var m=null;
+        $('.comment-text-area').on('focus',function(){
+           m= $(this).children('span');
+           m.remove();
+        });
+        
+        $('.comment-text-area').on('keyup',function(){
+            var t=$(this).text();
+            console.log(m.text());
+            if(t==null){
+                $(this).append(m);
+            }
+        })
+    </script>
+    <script src="/js/like.js"></script>
+    <script src="/js/comments.js"></script>
+</body>
+
+</html>

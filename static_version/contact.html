@@ -1,0 +1,78 @@
+
+<div class="modal  fade modal-fullscreen" id="contact_page">
+    <div class=" modal-dialog">
+        <div class="modal-content border-0 rounded-0">
+            <div class="modal-header">
+                <h5>Contact Me</h5>
+                <a class="close text-danger" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+            <div class="modal-body">
+
+                <form class="p-2 mb-2 small" method="post" name="contact" >
+                    <label>Your Name*</label>
+                    <input type="text" class=" form-control rounded-0 form-control-sm" name="name" placeholder="Enter your name" required="">
+                    <br>
+                    <label>Your Email*</label>
+                    <input type="email" class=" form-control rounded-0 form-control-sm" name="email" placeholder="Enter your email" required="">
+                    <br>
+<!--                    <label>Your Phone*</label>
+                    <input type="tel" class=" form-control  rounded-0 form-control-sm" name="phone" placeholder="Enter your email" required="">
+                    <br>-->                  <label>Your Message*</label>
+                    <textarea class="form-control rounded-0 form-control-sm" name="msg" rows="5" placeholder="Type your Comment here" required=""></textarea>
+                    <br>
+                    <button class="btn btn-sm btn-block text-center text-white bg-danger" name='send' type="submit">
+                        Send
+                    </button>
+                </form>
+<!--                <div class=" alert d-flex justify-content-center" style=" background-color:black; 
+                     background-image: url('https://www.transparenttextures.com/patterns/back-pattern.png');">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a class="text-primary fa fa-facebook nav-link"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="text-primary fa fa-twitter nav-link"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="coloured fa fa-instagram nav-link"></a>
+                        </li>
+                    </ul>
+                </div>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#contact_page").modal("show");
+
+    $(document.contact).submit(function (e) {
+        e.preventDefault();
+        $("#response").remove();
+        var v = " <div class=\"alert alert-dismissible fade show mt-2 gobal-background text-white\"  id=\"response\" role=\"alert\">\n" +
+                "\n" +
+                "                    <button type=\"button\"  class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n" +
+                "                        <span aria-hidden=\"true\">&times;</span>\n" +
+                "                    </button>\n" +
+                "                    <h6></h6>\n" +
+                "                </div>";
+        $("#contact_page .modal-body").prepend(v);
+        var rs = $("#response");
+        var btn = $(this.send);
+        btn.html(" <span class=\"spinner-grow spinner-grow-sm\" id=\"loader\" role=\"status\" aria-hidden=\"true\"></span>Sending....");
+        var data={name: $(this.name).val(), email: $(this.email).val(), msg: $(this.msg).val()};
+        $.ajax("/contact", {
+            data: data,
+            method: "POST"
+        }).done(function (data) {
+            $("#response h6").html('<b class="fa  fa-check-circle text-success"> Success</b><br>' + data);
+            btn.html("Send");
+        }).fail(function (data) {
+            $("#response h6").html('<b class="fa  fa-times-circle text-danger"> Failed: ' + data.status + '</b><br>' + data.responseText);
+            btn.html("Send");
+        });
+    });
+
+</script>
