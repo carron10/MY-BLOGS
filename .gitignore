@@ -7,7 +7,7 @@
 /static_version
 # testing
 /coverage
-
+static_version
 # production
 /build
 

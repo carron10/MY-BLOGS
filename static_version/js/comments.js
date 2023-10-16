@@ -1,7 +1,7 @@
 
 $(function () {
     var url = location.pathname;
-    $.get("https://chatsfly.co.zw/countcomments",{url: url}).done(function(d){
+    $.get("/countcomments",{url: url}).done(function(d){
         $("#view_comments i").text(d);
     });
     function subl(){
@@ -12,7 +12,7 @@ $(function () {
                 if (this.checkValidity() === true) {
                     btn.attr("disabled", true);
                     btn.html(" <span class=\"spinner-grow spinner-grow-sm\" id=\"loader\" role=\"status\" aria-hidden=\"true\"></span>Sending....");
-                    $.ajax({url: "https://chatsfly.co.zw/comments", method: "post", data: {
+                    $.ajax({url: "/comments", method: "post", data: {
                             email: email, uname: name, msg: msg, id: id, url: url
                         }}).done(function (e) {
                         a.html(e);
@@ -73,7 +73,7 @@ $(function () {
                 }
             });
         }
-        $.getJSON("https://chatsfly.co.zw/comments", {url: url}).done(function (data) {
+        $.getJSON("/comments", {url: url}).done(function (data) {
             render(data);
             if (connect === '') {
                 $("#comments .comment-section").html('<div class="text-center p-4">No comments so far, Be the first to comment <i class="fa  fa-frown-o"></i></div>');

@@ -1,11 +1,14 @@
 import { Route, Routes } from 'react-router';
 import { Home } from './pages/Home';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
 import './css/global.css';
-import './css/mystyle.css'
+import './css/mystyle.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch,faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import Blog from './pages/ShowBlog';
+import { BlogDev } from './pages/DevelopPages';
+import { ContactMe } from './pages/Contactme';
 
 
 
@@ -52,13 +55,15 @@ function App() {
       <Routes>
         <Route exact index path='/' element={<Home />} />
         <Route path='/blog/:id' element={<Blog/>}/>
+        <Route path='/dev/:page' element={<BlogDev/>}/>
+        <Route path='/contact' element={<ContactMe/>}/>
       </Routes>
       {/* Footer */}
       <div className=" text-center container-fluid border-top py-4">
         <div className=" text-muted">
           <span className=" px-1">Privacy</span>
           <span className=" px-1">About</span>
-          <span className=" px-1">Contact</span>
+          <span className=" px-1"><a className=" text-muted"  href='/contact'>Contact</a></span>
         </div>
       </div>
       <div className="mx-3" style={{ position: 'fixed', right: 0, bottom: '90px' }}>

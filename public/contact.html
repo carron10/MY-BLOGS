@@ -44,35 +44,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    $("#contact_page").modal("show");
-
-    $(document.contact).submit(function (e) {
-        e.preventDefault();
-        $("#response").remove();
-        var v = " <div class=\"alert alert-dismissible fade show mt-2 gobal-background text-white\"  id=\"response\" role=\"alert\">\n" +
-                "\n" +
-                "                    <button type=\"button\"  class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n" +
-                "                        <span aria-hidden=\"true\">&times;</span>\n" +
-                "                    </button>\n" +
-                "                    <h6></h6>\n" +
-                "                </div>";
-        $("#contact_page .modal-body").prepend(v);
-        var rs = $("#response");
-        var btn = $(this.send);
-        btn.html(" <span class=\"spinner-grow spinner-grow-sm\" id=\"loader\" role=\"status\" aria-hidden=\"true\"></span>Sending....");
-        var data={name: $(this.name).val(), email: $(this.email).val(), msg: $(this.msg).val()};
-        $.ajax("/contact", {
-            data: data,
-            method: "POST"
-        }).done(function (data) {
-            $("#response h6").html('<b class="fa  fa-check-circle text-success"> Success</b><br>' + data);
-            btn.html("Send");
-        }).fail(function (data) {
-            $("#response h6").html('<b class="fa  fa-times-circle text-danger"> Failed: ' + data.status + '</b><br>' + data.responseText);
-            btn.html("Send");
-        });
-    });
-
-</script>

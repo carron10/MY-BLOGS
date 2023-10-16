@@ -7,10 +7,12 @@ import React, { useEffect, useRef } from 'react';
 import { useState } from 'react'
 import Alert from './Alerts';
 import { DisplayTopics, MyProfile } from './Utils';
-import { renderToString } from 'react-dom/server'
-import parse from 'html-react-parser';
+import parse, { domToReact, attributesToProps } from 'html-react-parser';
 import Parse from 'parse';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
 
+library.add(fas)
 
 const PARSE_APPLICATION_ID = 'FeSpWu9VEzKeoZOuJa7IebenDyrRtPLwutz53FwK';
 const PARSE_HOST_URL = 'https://parseapi.back4app.com/';
@@ -24,6 +26,7 @@ export default function Blog() {
     const [failed_to_load_blog_meta_data, setfailedtoLoadMeta] = useState(false);
     const [page_meta_data, setPageMetaData] = useState([]);
     const [blogBody, setPageBody] = useState(null);
+    const [comments, setComments] = useState(null);
     var BlogSkeleton = () => {
         return (<div className=" media py-1 rounded">
             <i className="align-self-start mr-3 coloured">
@@ -75,17 +78,52 @@ export default function Blog() {
             </div>
         </div>
     </div>)
+    const options = {
+        replace: (domNode) => {
+            let attribs = domNode.attribs, children = domNode.children;
+
+            if (!attribs) {
+                return;
+            }
+            if (attribs.class != undefined) {
+
+                var item = attribs.class,
+                    matchIconSize = item.match(/(fa-([^\D])(x)[^ ]*)/g),
+                    matchAnIcon = item.match(/(fa-[^\d][^ ]*)/g);
+
+                if (matchAnIcon) {
+                    var icon = matchAnIcon[0].match(/(fa-(.*))/)[2];
+                    const props = attributesToProps(domNode.attribs);
+                    return <FontAwesomeIcon {...props} icon={['fa', icon]} />
+                }
+            }
+            if (attribs.id === 'main') {
+                return <h1 style={{ fontSize: 42 }}>
+                    {domToReact(children, options)}
+                </h1>;
+            }
+
+
+        }
+    };
     async function getBlog() {
         setfailedtoLoadMeta(false);
+        var cachedData = localStorage.getItem('page.' + id);
+        cachedData = cachedData == null ? [] : JSON.parse(cachedData);
         const pageQuery = new Parse.Query('Page');
 
         pageQuery.equalTo('objectId', id)
+        if (cachedData.length != 0) {
+            console.log(cachedData.length)
+          //  pageQuery.greaterThan('updatedAt', cachedData['updatedAt'])
+        }
 
         await pageQuery.find().then((results) => {
             var meta = [], i = 0;
             for (const object of results) {
                 // object.get('content').getData()
                 object.get('content').getData().then((data) => {
+                    cachedData['pageContent'] = data;
                     setPageBody(atob(data));
                 })
                 //.then((s)=>{
@@ -95,17 +133,24 @@ export default function Blog() {
                 // })
                 const CommentsQuery = new Parse.Query('Comments');
                 CommentsQuery.equalTo('page_url', new Parse.Object('Page', { id: object.id }))
+                CommentsQuery.select('comment', 'user_name')
                 CommentsQuery.find().then((count) => {
                     object.set('total_comments', count.length)
                     object.set('comments', count)
+                    cachedData['comments'] = count.toJSON();
+
                 }).catch(function (error) {
                     object.set('total_comments', 0)
                 }).finally(() => {
                     meta.push(object);
                     i++;
                     if (i == results.length) {
-
+                        setComments(object.get('comments'))
                         setPageMetaData(meta);
+                        cachedData['meta'] = page_meta_data;
+                        console.log(cachedData);
+                        localStorage.setItem('page.' + id, JSON.stringify(cachedData));
+
                     }
                 });
             }
@@ -128,11 +173,14 @@ export default function Blog() {
                                 {
                                     blogBody == null ? null :
                                         <div>
-                                            {parse(blogBody)}
+                                            {parse(blogBody, options)}
                                         </div>
                                 }
                             </div>
                         </div>
+                        {
+                            comments == null ? <ShowComments comments={null} /> : <ShowComments comments={comments} />
+                        }
                     </div>
                     <div className="col-sm-3  p-2">
                         <DisplayTopics />

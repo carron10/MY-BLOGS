@@ -22,6 +22,7 @@ export function Home() {
     const [page_meta_data, setPageMetaData] = useState([]);
     var BlogSkeleton = () => {
         return (<div className=" media py-1 rounded">
+            
             <i className="align-self-start mr-3 coloured">
                 <p className="skeleton skeleton-img" style={{ width: '100%' }}></p>
             </i>
