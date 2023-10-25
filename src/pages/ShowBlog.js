@@ -109,19 +109,23 @@ export default function Blog() {
     async function getBlog() {
         setfailedtoLoadMeta(false);
         var cachedData = localStorage.getItem('page.' + id);
-        cachedData = cachedData == null ? [] : JSON.parse(cachedData);
+        cachedData = cachedData == null ? {} : JSON.parse(cachedData);
         const pageQuery = new Parse.Query('Page');
 
         pageQuery.equalTo('objectId', id)
-        if (cachedData.length != 0) {
-            console.log(cachedData.length)
-          //  pageQuery.greaterThan('updatedAt', cachedData['updatedAt'])
+        if (cachedData != {}) {
+            // pageQuery.greaterThan('updatedAt', cachedData['PageData']['updatedAt'])
         }
 
         await pageQuery.find().then((results) => {
             var meta = [], i = 0;
+            // if (results.length == 0 && cachedData != null) {
+            //     setPageBody(atob(cachedData['pageContent']));
+                
+            // }
             for (const object of results) {
                 // object.get('content').getData()
+                cachedData['PageData'] = object.toJSON();
                 object.get('content').getData().then((data) => {
                     cachedData['pageContent'] = data;
                     setPageBody(atob(data));
@@ -138,7 +142,6 @@ export default function Blog() {
                     object.set('total_comments', count.length)
                     object.set('comments', count)
                     cachedData['comments'] = count.toJSON();
-
                 }).catch(function (error) {
                     object.set('total_comments', 0)
                 }).finally(() => {
@@ -147,10 +150,8 @@ export default function Blog() {
                     if (i == results.length) {
                         setComments(object.get('comments'))
                         setPageMetaData(meta);
-                        cachedData['meta'] = page_meta_data;
-                        console.log(cachedData);
+                        console.log(cachedData.length)
                         localStorage.setItem('page.' + id, JSON.stringify(cachedData));
-
                     }
                 });
             }

@@ -1,5 +1,5 @@
 import { faGithub, faLinkedin, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import { faCalendarAlt, faChevronUp, faComments, faGift, faLineChart, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faCalendarAlt, faChevronUp, faComments, faGift, faLineChart, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, CloseButton, Collapse } from 'react-bootstrap';
 
@@ -7,11 +7,12 @@ export function MyProfile() {
     return (<div className="sidebar-text border d-none d-sm-inline-block d-flex flex-column justify-content-center text-center p-1">
         <img className="mx-auto d-block w-75 btn  bg-dark img-fluid rounded-circle mb-4 p-3 mt-1"
             src="img/carron-muleya.jpg" alt="Image" />
-        <h1 className="font-weight-bold">Carron Muleya</h1>
+        <h4 className="font-weight-bold">Carron Muleya</h4>
         <p className="mb-4">
-            A young software programmer who is passionate on reading and writting articles on whatever I
-            have
-            learnt throughout my skill development.
+            A young software programmer with passion for learning and sharing knowledge through
+            written articles. Always eager to explore new ideas and technologies, Carron aims to make a
+            positive impact on the tech community by sharing their insights and experiences. Whether you're a
+            beginner or an experienced developer, Carron's articles are sure to provide valuable information and inspirtation.
         </p>
         <div className="d-flex justify-content-center mb-2">
 
@@ -49,10 +50,10 @@ export function MyProfile() {
 export function DisplayTopics() {
     return (<div className=" mt-2 tags sticky-top">
         <p>DISCOVER MORE OF WHAT MATTERS TO YOU</p>
-        <button className="btn border rounded-0 my-1">Programming</button>
-        <button className="btn border rounded-0 my-1">Programming</button>
-        <button className="btn border rounded-0 my-1">Programming</button>
-        <button className="btn border rounded-0 my-1">Programming</button>
+        <button className="btn border rounded-0 my-1 mx-1">Programming</button>
+        <button className="btn border rounded-0 my-1 mx-1">Data Analytic</button>
+        <button className="btn border rounded-0 my-1 mx-1">Web Development</button>
+        <button className="btn border rounded-0 my-1 mx-1">Github</button>
     </div>)
 }
 
@@ -66,7 +67,7 @@ export function ShowComments(props) {
         <section>
             <ShowLikes />
             <button type="button" className="btn-close" aria-label="Close">
-                
+
             </button>
             <div className=" mt-1">
 
@@ -180,4 +181,54 @@ export function ShowLikes() {
             </div>
         </div>
     </div>)
+}
+
+export const BlogNavBar = () => (<nav className="navbar navbar-expand-md border-bottom  py-3 small" style={{ backgroundColor: 'rgba(255,245,255,255)' }}>
+    <a className="navbar-brand font-weight-bold" href="/">CHATSFLY</a>
+    {/* <!-- <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse">
+  <span className="navbar-toggler-icon a"></span>
+  <span className="navbar-toggler-icon b"></span>
+  <span className="navbar-toggler-icon c"></span>
+</button> --> */}
+    <div className=" d-sm-none">
+        <a href='search' className="nav-link">
+            <FontAwesomeIcon icon={faSearch} />
+        </a>
+    </div>
+    <div className="collapse navbar-collapse text-center d-none d-sm-inline-block" id="collapse">
+        <ul className=" nav navbar-nav ml-auto ml-auto pr-2">
+            <li className=" nav-item">
+                <a href='/search' className="nav-link">
+                    <FontAwesomeIcon icon={faSearch} />
+                </a>
+
+            </li>
+            <li className=" nav-item">
+                <a className="nav-link" href="/about">
+                    About
+                </a>
+            </li>
+            <li className=" nav-item">
+                <a className="nav-link"  href="/contact">
+                    Contact
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>)
+export const BlogFooter = () => {
+    return (<>
+        <div className=" text-center container-fluid border-top py-4">
+            <div className=" text-muted">
+                <span className=" px-1"><a className=" text-muted" href='/'>Home</a></span>
+                <span className=" px-1"><a className=" text-muted" href='/privacy'>Privacy</a></span>
+                <span className=" px-1"><a className=" text-muted" href='/about'>About</a></span>
+                <span className=" px-1"><a className=" text-muted" href='/contact'>Contact</a></span>
+            </div>
+        </div>
+        <div className="mx-3" style={{ position: 'fixed', right: 0, bottom: '90px' }}>
+            <button id="go_up" className=" border-0 p-0">
+                <FontAwesomeIcon icon={faChevronUp} className="text-white p-2" style={{ backgroundColor: '#0069d9' }} />
+            </button>
+        </div></>)
 }

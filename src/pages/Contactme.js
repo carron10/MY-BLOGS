@@ -33,22 +33,22 @@ export const ContactMe = () => {
                                             <div id="success"></div>
                                             <form name="sentMessage" id="contactForm" action="/api/contact" novalidate="novalidate">
                                                 <div className="control-group">
-                                                    <input type="text" className="form-control" id="name" placeholder="Your Name" required="required"
+                                                    <input type="text" className="form-control rounded-0" id="name" placeholder="Your Name" required="required"
                                                         data-validation-required-message="Please enter your name" />
                                                     <p className="help-block text-danger"></p>
                                                 </div>
                                                 <div className="control-group">
-                                                    <input type="email" className="form-control" id="email" placeholder="Your Email" required="required"
+                                                    <input type="email" className="form-control rounded-0" id="email" placeholder="Your Email" required="required"
                                                         data-validation-required-message="Please enter your email" />
                                                     <p className="help-block text-danger"></p>
                                                 </div>
                                                 <div className="control-group">
-                                                    <input type="text" className="form-control" id="subject" placeholder="Subject" required="required"
+                                                    <input type="text" className="form-control rounded-0" id="subject" placeholder="Subject" required="required"
                                                         data-validation-required-message="Please enter a subject" />
                                                     <p className="help-block text-danger"></p>
                                                 </div>
                                                 <div className="control-group">
-                                                    <textarea className="form-control" rows="8" id="message" placeholder="Message" required="required"
+                                                    <textarea className="form-control rounded-0" rows="8" id="message" placeholder="Message" required="required"
                                                         data-validation-required-message="Please enter your message"></textarea>
                                                     <p className="help-block text-danger"></p>
                                                 </div>

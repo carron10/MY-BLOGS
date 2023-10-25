@@ -1,5 +1,5 @@
 import { faGithub, faLinkedin, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import { faCalendarAlt, faChevronUp, faComments, faGift, faLineChart, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarAlt, faChevronUp, faClock, faComments, faGift, faLineChart, faPhone, faTimeline } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useRef } from 'react';
 import { useState } from 'react'
@@ -21,35 +21,36 @@ export function Home() {
     const [failed_to_load_blog_meta_data, setfailedtoLoadMeta] = useState(false);
     const [page_meta_data, setPageMetaData] = useState([]);
     var BlogSkeleton = () => {
-        return (<div className=" media py-1 rounded">
-            
-            <i className="align-self-start mr-3 coloured">
-                <p className="skeleton skeleton-img" style={{ width: '100%' }}></p>
-            </i>
-            <div className="media-body">
+        return (
+            <div className=" media py-1 rounded">
 
-                <h4 className="text-c5 skeleton skeleton-text" style={{ height: '20px' }}></h4>
+                <i className="align-self-start mr-3 coloured">
+                    <p className="skeleton skeleton-img" style={{ width: '100%' }}></p>
+                </i>
+                <div className="media-body">
 
-                <div className="m-0 skeleton skeleton-text" style={{ height: '98px' }}>
-                    {failed_to_load_blog_meta_data ?
-                        <div className='centered'>
-                            Failed to load Blog Data
-                        </div> : null}
+                    <h4 className="text-c5 skeleton skeleton-text" style={{ height: '20px' }}></h4>
+
+                    <div className="m-0 skeleton skeleton-text" style={{ height: '98px' }}>
+                        {failed_to_load_blog_meta_data ?
+                            <div className='centered'>
+                                Failed to load Blog Data
+                            </div> : null}
+                    </div>
+                    <div className="d-flex mt-2">
+
+                        <p className="m-0  mr-1  skeleton skeleton-text" style={{ height: '16px' }}>
+
+                        </p>
+                        <p className="m-0  mr-1 ml-1 skeleton skeleton-text" style={{ height: '16px' }}>
+
+                        </p>
+                        <i className="m-0  ml-1 skeleton skeleton-text" style={{ height: '16px' }}>
+
+                        </i>
+                    </div>
                 </div>
-                <div className="d-flex mt-2">
-
-                    <p className="m-0  mr-1  skeleton skeleton-text" style={{ height: '16px' }}>
-
-                    </p>
-                    <p className="m-0  mr-1 ml-1 skeleton skeleton-text" style={{ height: '16px' }}>
-
-                    </p>
-                    <i className="m-0  ml-1 skeleton skeleton-text" style={{ height: '16px' }}>
-
-                    </i>
-                </div>
-            </div>
-        </div>)
+            </div>)
     }
     var BlogSkeleton2 = (props) => (<div className=" media my-2  col-md-4 mt-3">
         <div className="align-self-start mr-2 mt-2">
@@ -75,7 +76,7 @@ export function Home() {
     async function getPages() {
         setfailedtoLoadMeta(false);
         const pageQuery = new Parse.Query('Page');
-        
+
         pageQuery.select('title', 'short_description', 'updatedAt', 'blog_image', 'total_visits')
         pageQuery.limit(10);
         await pageQuery.find().then((results) => {
@@ -141,6 +142,7 @@ export function Home() {
 
                     <div className="col">
                         <div className=" ">
+                        <div className="font-weight-bold text-uppercase">Recent Posts</div>
                             {
                                 page_meta_data.length == 0 ? <><BlogSkeleton />
                                     <BlogSkeleton /></> :
@@ -193,8 +195,8 @@ export function Home() {
                             </div>
                             {/* <!-- Subscribe End --> */}
                             {
-                              page_meta_data.length == 0 ? <><BlogSkeleton />
-                              <BlogSkeleton /></>:null
+                                page_meta_data.length == 0 ? <><BlogSkeleton />
+                                    <BlogSkeleton /></> : null
                             }
 
                             {/* <a href="/How-to-build-a-web-site">
@@ -248,12 +250,14 @@ export function Home() {
 
                         </div>
                         <div className=" text-center my-1">
-                            <button className=" btn border rounded-pill">Load more stories</button>
+                            <a href="/blogs" className=" btn border rounded-pill">Load more stories</a>
                         </div>
+                        
                     </div>
                     <div className="col-sm-4 ">
-                        <MyProfile />
-
+                        <div className="d-none d-sm-inline-block">
+                            <MyProfile />
+                        </div>
                         <DisplayTopics />
                     </div>
                 </div>
